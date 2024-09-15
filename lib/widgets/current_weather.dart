@@ -1,0 +1,136 @@
+import 'package:flutter/material.dart';
+
+import 'package:sky_snap/utils/custom_colors.dart';
+
+import '../model/weather_data_current.dart';
+
+class CurrentWeatherWidget extends StatelessWidget {
+  final WeatherDataCurrent weatherDataCurrent;
+  const CurrentWeatherWidget({super.key, required this.weatherDataCurrent});
+
+  @override
+  Widget build(BuildContext context) {
+    print(weatherDataCurrent.current.weather?[0].icon);
+
+    return Column(
+      children: [
+        tempWidget(),
+        const SizedBox(
+          height: 15,
+        ),
+        detailsWidget(),
+      ],
+    );
+  }
+
+  Widget detailsWidget() {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Container(
+              height: 60,
+              width: 60,
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: CustomColors.cardColor,
+              ),
+              child: Image.asset("assets/icons/windspeed.png"),
+            ),
+            Container(
+              height: 60,
+              width: 60,
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: CustomColors.cardColor,
+              ),
+              child: Image.asset("assets/icons/clouds.png"),
+            ),
+            Container(
+              height: 60,
+              width: 60,
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: CustomColors.cardColor,
+              ),
+              child: Image.asset("assets/icons/humidity.png"),
+            ),
+          ],
+        ),
+        const SizedBox(
+          height: 7,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            SizedBox(
+              height: 20,
+              width: 60,
+              child: Text(
+                "${weatherDataCurrent.current.windSpeed} km/h",
+                style:
+                    const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+              width: 60,
+              child: Text(
+                "${weatherDataCurrent.current.clouds}%",
+                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+              width: 60,
+              child: Text(
+                "${weatherDataCurrent.current.humidity}%",
+                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ],
+        )
+      ],
+    );
+  }
+
+  Widget tempWidget() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Image.asset(
+          "assets/weather/${weatherDataCurrent.current.weather![0].icon}.png", // Icon from the API
+          width: 80,
+          height: 80,
+        ),
+        Container(
+          height: 50,
+          width: 1,
+          color: CustomColors.dividerLine,
+        ),
+        RichText(
+            text: TextSpan(children: [
+          TextSpan(
+              text: "${weatherDataCurrent.current.temp!.toInt()}°",
+              style: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 68,
+                  color: CustomColors.textColorBlack)),
+          TextSpan(
+              text: "${weatherDataCurrent.current.weather![0].description}",
+              style: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 14,
+                  color: Colors.grey[700]))
+        ]))
+      ],
+    );
+  }
+}
