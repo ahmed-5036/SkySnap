@@ -12,7 +12,7 @@ class GlobalController extends GetxController {
   RxDouble getLatitude() => _latitude;
   RxDouble getLongitude() => _longitude;
 
-  RxInt _currentIndex = 0.obs;
+  final RxInt _currentIndex = 0.obs;
 
   final Rx<WeatherData> weatherData = WeatherData().obs;
   WeatherData getWeatherData() {
@@ -29,6 +29,7 @@ class GlobalController extends GetxController {
     super.onInit();
   }
 
+  // ignore: non_constant_identifier_names
   LoadLocation() async {
     bool serviceEnabled;
     LocationPermission locationPermission;
@@ -41,12 +42,14 @@ class GlobalController extends GetxController {
     } else if (locationPermission == LocationPermission.denied) {
       //return Future.error("Location permission is denied");
       locationPermission = await Geolocator.requestPermission();
-      if (locationPermission == LocationPermission.denied)
+      if (locationPermission == LocationPermission.denied) {
         return Future.error("Location permission is denied");
+      }
     }
     //accuracy = await Geolocator.getLocationAccuracy();
     return await Geolocator.getCurrentPosition(
-            locationSettings: LocationSettings(accuracy: LocationAccuracy.high))
+            locationSettings:
+                const LocationSettings(accuracy: LocationAccuracy.high))
         .then((value) {
       _longitude.value = value.longitude;
       _latitude.value = value.latitude;

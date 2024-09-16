@@ -6,6 +6,7 @@ import 'package:sky_snap/controller/global_controller.dart';
 import 'package:sky_snap/model/weather_data_hourly.dart';
 import 'package:sky_snap/utils/custom_colors.dart';
 
+// ignore: must_be_immutable
 class HourlyWeatherWidget extends StatelessWidget {
   final WeatherDataHourly weatherDataHourly;
   HourlyWeatherWidget({super.key, required this.weatherDataHourly});
@@ -15,9 +16,9 @@ class HourlyWeatherWidget extends StatelessWidget {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+          margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
           alignment: Alignment.topCenter,
-          child: Text(
+          child: const Text(
             "Today",
             style: TextStyle(fontSize: 18),
           ),
@@ -30,7 +31,7 @@ class HourlyWeatherWidget extends StatelessWidget {
   Widget hourlyList() {
     return Container(
       height: 160,
-      padding: EdgeInsets.only(top: 10, bottom: 10),
+      padding: const EdgeInsets.only(top: 10, bottom: 10),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: weatherDataHourly.hourly.length > 14
@@ -43,7 +44,7 @@ class HourlyWeatherWidget extends StatelessWidget {
               },
               child: Container(
                 width: 90,
-                margin: EdgeInsets.only(left: 12, right: 12),
+                margin: const EdgeInsets.only(left: 12, right: 12),
                 decoration: BoxDecoration(
                     border: Border.all(
                       color: currentIndex.value == index
@@ -54,7 +55,7 @@ class HourlyWeatherWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: [
                       BoxShadow(
-                        offset: Offset(0, 0),
+                        offset: const Offset(0, 0),
                         blurRadius: 20,
                         spreadRadius: 0,
                         color: CustomColors.dividerLine.withAlpha(120),
@@ -77,6 +78,7 @@ class HourlyWeatherWidget extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class HourlyDetails extends StatelessWidget {
   int temp, timeStamp, index, currentIndex;
   String weatherIcon;
@@ -94,7 +96,7 @@ class HourlyDetails extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Container(
-            margin: EdgeInsets.only(top: 10),
+            margin: const EdgeInsets.only(top: 10),
             child: Text(
               formatTimestamp(timeStamp),
               style: TextStyle(
@@ -102,15 +104,15 @@ class HourlyDetails extends StatelessWidget {
               ),
             )),
         Container(
-          margin: EdgeInsets.all(5),
+          margin: const EdgeInsets.all(5),
           child: Image.asset(
-            "assets/weather/${weatherIcon}.png",
+            "assets/weather/$weatherIcon.png",
             width: 40,
             height: 40,
           ),
         ),
         Container(
-          margin: EdgeInsets.only(bottom: 10),
+          margin: const EdgeInsets.only(bottom: 10),
           child: Text(
             "$temp°",
             style: TextStyle(

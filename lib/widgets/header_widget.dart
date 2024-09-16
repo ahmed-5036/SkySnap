@@ -30,24 +30,24 @@ class _HeaderWidgetState extends State<HeaderWidget> {
     try {
       List<Placemark> placemark =
           await placemarkFromCoordinates(latitude, longitude)
-              .timeout(Duration(seconds: 10)); // Increased timeout
+              .timeout(const Duration(seconds: 10)); // Increased timeout
       if (placemark.isNotEmpty) {
         Placemark place = placemark[0];
         city.value = place.locality ?? 'Unknown';
-        print(place);
+        //print(place);
       } else {
         city.value = 'Unknown';
       }
     } catch (e) {
-      print('Failed to get address: $e');
+      //print('Failed to get address: $e');
       city.value = 'Unknown';
     }
   }
 
   void updateDate() {
     date.value = DateFormat("yMMMMd").format(DateTime.now());
-    print(date);
-    print(date.value);
+    //print(date);
+    //print(date.value);
   }
 
   @override
@@ -55,16 +55,16 @@ class _HeaderWidgetState extends State<HeaderWidget> {
     return Column(
       children: [
         Container(
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             alignment: Alignment.topLeft,
             child: Obx(
               () => Text(
                 city.value, // City name automatically updates here
-                style: TextStyle(fontSize: 34, height: 2),
+                style: const TextStyle(fontSize: 34, height: 2),
               ),
             )),
         Container(
-            margin: EdgeInsets.only(left: 20, right: 20, bottom: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
             alignment: Alignment.topLeft,
             child: Obx(
               () => Text(

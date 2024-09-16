@@ -10,7 +10,7 @@ class CurrentWeatherWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(weatherDataCurrent.current.weather?[0].icon);
+    //print(weatherDataCurrent.current.weather?[0].icon);
 
     return Column(
       children: [
@@ -32,7 +32,7 @@ class CurrentWeatherWidget extends StatelessWidget {
             Container(
               height: 60,
               width: 60,
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 color: CustomColors.cardColor,
@@ -42,7 +42,7 @@ class CurrentWeatherWidget extends StatelessWidget {
             Container(
               height: 60,
               width: 60,
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 color: CustomColors.cardColor,
@@ -52,7 +52,7 @@ class CurrentWeatherWidget extends StatelessWidget {
             Container(
               height: 60,
               width: 60,
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 color: CustomColors.cardColor,
@@ -82,7 +82,8 @@ class CurrentWeatherWidget extends StatelessWidget {
               width: 60,
               child: Text(
                 "${weatherDataCurrent.current.clouds}%",
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                style:
+                    const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -91,7 +92,8 @@ class CurrentWeatherWidget extends StatelessWidget {
               width: 60,
               child: Text(
                 "${weatherDataCurrent.current.humidity}%",
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                style:
+                    const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
                 textAlign: TextAlign.center,
               ),
             ),

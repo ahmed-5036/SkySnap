@@ -12,8 +12,9 @@ class ComfortWidget extends StatelessWidget {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.only(top: 1, left: 20, right: 20, bottom: 20),
-          child: Text(
+          margin:
+              const EdgeInsets.only(top: 1, left: 20, right: 20, bottom: 20),
+          child: const Text(
             "Comfort Level",
             style: TextStyle(fontSize: 18),
           ),
@@ -35,7 +36,7 @@ class ComfortWidget extends StatelessWidget {
                             progressBarWidth: 14),
                         infoProperties: InfoProperties(
                             bottomLabelText: "Humidity",
-                            bottomLabelStyle: TextStyle(
+                            bottomLabelStyle: const TextStyle(
                                 letterSpacing: 0.1, fontSize: 14, height: 1.5)),
                         animationEnabled: true,
                         size: 140,
@@ -48,7 +49,7 @@ class ComfortWidget extends StatelessWidget {
                               CustomColors.secondGradientColor
                             ])),
                     onChange: (double value) {
-                      print(value);
+                      //print(value);
                     }),
               ),
               Row(
@@ -56,7 +57,7 @@ class ComfortWidget extends StatelessWidget {
                 children: [
                   RichText(
                       text: TextSpan(children: [
-                    TextSpan(
+                    const TextSpan(
                       text: "Feels like ",
                       style: TextStyle(
                           fontSize: 14,
@@ -66,7 +67,7 @@ class ComfortWidget extends StatelessWidget {
                     ),
                     TextSpan(
                       text: "${weatherDataCurrent.current.feelsLike}°",
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 14,
                           height: 0.8,
                           color: CustomColors.textColorBlack,

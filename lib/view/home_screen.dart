@@ -30,6 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: 60,
                   ),
                 )
+              // ignore: avoid_unnecessary_containers
               : Container(
                   child: Center(
                     child: ListView(
@@ -38,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         const SizedBox(
                           height: 20,
                         ),
-                        HeaderWidget(),
+                        const HeaderWidget(),
                         CurrentWeatherWidget(
                           weatherDataCurrent: globalController
                               .getWeatherData()

@@ -1,3 +1,7 @@
+// ignore: file_names
+// ignore: file_names
+// ignore: file_names
+// ignore: file_names
 import 'package:sky_snap/model/weather_data_daily.dart';
 
 import 'weather_data_current.dart';
