@@ -7,6 +7,9 @@ import 'package:sky_snap/widgets/current_weather.dart';
 import 'package:sky_snap/widgets/daily_weather.dart';
 import 'package:sky_snap/widgets/header_widget.dart';
 import 'package:sky_snap/widgets/hourly_weather.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:lottie/lottie.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -24,10 +27,22 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
           child: Obx(() => globalController.checkLoading().isTrue
               ? Center(
-                  child: Image.asset(
-                    "assets/icons/clouds.png",
-                    height: 60,
-                    width: 60,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(),
+                      Lottie.asset(
+                        "assets/splash/lottie_loading.json",
+                        height: 220,
+                        width: 220,
+                      ),
+                      Container(
+                          padding: EdgeInsets.only(bottom: 40),
+                          child: LoadingAnimationWidget.waveDots(
+                            color: Colors.grey[700]!,
+                            size: 50.0,
+                          )),
+                    ],
                   ),
                 )
               // ignore: avoid_unnecessary_containers

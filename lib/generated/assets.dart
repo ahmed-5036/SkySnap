@@ -6,6 +6,8 @@ class Assets {
   static const String iconsClouds = 'assets/icons/clouds.png';
   static const String iconsHumidity = 'assets/icons/humidity.png';
   static const String iconsWindspeed = 'assets/icons/windspeed.png';
+  static const String skySnapShorebird = 'shorebird.yaml';
+  static const String splashLottie = 'assets/splash/lottie.json';
   static const String weather01d = 'assets/weather/01d.png';
   static const String weather01n = 'assets/weather/01n.png';
   static const String weather02d = 'assets/weather/02d.png';
